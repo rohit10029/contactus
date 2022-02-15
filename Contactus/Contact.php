@@ -148,7 +148,7 @@ class Contact {
     
         $table_name = $wpdb->prefix . 'contactus';
         
-        $sql = "select * from  $table_name;";
+        $sql = "select * from  $table_name order by id desc;";
         
     
          $results = $wpdb->get_results($sql) ;

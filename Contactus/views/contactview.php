@@ -37,6 +37,7 @@ $.ajax(settings).done(function (res) {
   if(k["status"])
   {
     alert(k["message"])
+    location.reload();
   }
   else{
     alert(k["error"])
