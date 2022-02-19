@@ -6,6 +6,12 @@ use function WPMailSMTP\Vendor\GuzzleHttp\json_encode;
 class Contact {
     function init()
     {
+        add_action( 'rest_api_init', function() {
+
+            remove_filter( 'rest_pre_serve_request', 'rest_send_cors_headers' );
+        
+            add_filter( 'rest_pre_serve_request',array($this, 'initCors'));
+        }, 15 );
         
              add_action('rest_api_init',array($this,'wp_rest_user_endpoints'));
              add_shortcode('contact_view', array($this,'contactview'));
@@ -26,7 +32,14 @@ class Contact {
         ));
         }
 
-      
+        function initCors( $value ) {
+            $origin_url = '*';
+        
+            header( 'Access-Control-Allow-Origin: ' . $origin_url );
+            header( 'Access-Control-Allow-Methods: GET' );
+            header( 'Access-Control-Allow-Credentials: true' );
+            return $value;
+          }
     function emailAddress($d)
     {
         if(!empty($d))
