@@ -23,7 +23,8 @@
       
 
 var settings = {
-  "url": "http://localhost/wordpress/wp-json/api/v1/send/sms",
+  // "url": "http://localhost/wordpress/wp-json/api/v1/send/sms",
+  "url": site_url()+"/wp-json/api/v1/send/sms",
   "method": "POST",
   // "contentType": false,
   "data":{"name":name,"email":email,"phone":phone,"message":message}

@@ -36,7 +36,7 @@
       $(document).ready(function(){ 
 
         var settings = {
-  "url": "http://localhost/wordpress/wp-json/api/v1/show/list",
+  "url": site_url()+"/wp-json/api/v1/show/list",
   "method": "GET",
   "timeout": 0,
 };
